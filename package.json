@@ -1,6 +1,6 @@
 {
-  "name": "rapidoc",
-  "version": "9.3.7-beta",
+  "name": "@majoshi1/rapidoc-latest",
+  "version": "2024.09.0",
   "description": "RapiDoc - Open API spec viewer with built in console",
   "author": "Mrinmoy Majumdar <mrin9@yahoo.com>",
   "homepage": "https://rapidocweb.com",
@@ -36,6 +36,7 @@
     "@apitools/openapi-parser": "0.0.32",
     "base64-arraybuffer": "^1.0.2",
     "buffer": "^6.0.3",
+    "copy-folder-util": "^1.1.4",
     "lit": "^3.2.0",
     "marked": "4.3.0",
     "prismjs": "^1.29.0",
@@ -49,7 +50,8 @@
     "serve-prod": "webpack serve --mode=production",
     "serve1": "node --trace-deprecation ./node_modules/webpack/bin/webpack serve",
     "lint": "./node_modules/eslint/bin/eslint.js ./src/**",
-    "lint-fix": "./node_modules/eslint/bin/eslint.js --fix ./src/**"
+    "lint-fix": "./node_modules/eslint/bin/eslint.js --fix ./src/**",
+    "docs": "copy-folder-util docs ../majoshi1.github.io/rapidoc-latest/rapidocweb"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
