@@ -22,7 +22,7 @@
 
 For development 
 ```shell
-git clone https://github.com/rapi-doc/RapiDoc.git
+git clone https://github.com/rapidoc-latest/RapiDoc.git
 yarn install
 yarn serve
 # open http://localhost:8080

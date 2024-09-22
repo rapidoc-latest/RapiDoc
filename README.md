@@ -1,10 +1,10 @@
-<img alt="MrinDoc logo" src="https://github.com/rapi-doc/RapiDoc/blob/master/logo.png" width="60px" />
+<img alt="MrinDoc logo" src="https://github.com/rapidoc-latest/RapiDoc/blob/master/logo.png" width="60px" />
 
 
 <p align="center">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square"/>
-    <img src="https://img.shields.io/github/size/rapi-doc/rapidoc/dist/rapidoc-min.js.svg?colorB=blue&label=minified&style=flat-square">
-    <img src="https://img.shields.io/github/size/rapi-doc/rapidoc/dist/rapidoc-min.js.gz.svg?colorB=blue&label=zip&style=flat-square">
+    <img src="https://img.shields.io/github/size/rapidoc-latest/rapidoc/dist/rapidoc-min.js.svg?colorB=blue&label=minified&style=flat-square">
+    <img src="https://img.shields.io/github/size/rapidoc-latest/rapidoc/dist/rapidoc-min.js.gz.svg?colorB=blue&label=zip&style=flat-square">
     <a href="https://www.webcomponents.org/element/rapidoc" alt="published on webcomponents.org">
         <img src="https://img.shields.io/badge/webcomponents.org-rapidoc-blue.svg?style=social"/>
     </a>
@@ -44,10 +44,10 @@ Custom Element for Open-API spec viewing
 
 
 ## Documentation
-[Check out the usage and demos](https://rapi-doc.github.io/RapiDoc/)
+[Check out the usage and demos](https://rapidoc-latest.github.io/RapiDoc/)
 
 ## Examples
-[Examples and Test cases](https://rapi-doc.github.io/RapiDoc/list.html)
+[Examples and Test cases](https://rapidoc-latest.github.io/RapiDoc/list.html)
 
 
 ## Build Process

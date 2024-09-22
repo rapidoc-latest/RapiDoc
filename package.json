@@ -3,12 +3,15 @@
   "version": "2024.09.0",
   "description": "RapiDoc - Open API spec viewer with built in console",
   "author": "Mrinmoy Majumdar <mrin9@yahoo.com>",
-  "homepage": "https://rapidocweb.com",
+  "homepage": "https://majoshi1.github.io/rapidoc-latest/rapidocweb",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rapi-doc/RapiDoc.git"
+    "url": "https://github.com/rapidoc-latest/RapiDoc.git"
   },
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "OpenAPI",
     "OpenAPI Specification",
@@ -49,8 +52,8 @@
     "serve": "webpack serve --mode=development",
     "serve-prod": "webpack serve --mode=production",
     "serve1": "node --trace-deprecation ./node_modules/webpack/bin/webpack serve",
-    "lint": "./node_modules/eslint/bin/eslint.js ./src/**",
-    "lint-fix": "./node_modules/eslint/bin/eslint.js --fix ./src/**",
+    "lint": "node ./node_modules/eslint/bin/eslint.js ./src/**",
+    "lint-fix": "node ./node_modules/eslint/bin/eslint.js --fix ./src/**",
     "docs": "copy-folder-util docs ../majoshi1.github.io/rapidoc-latest/rapidocweb"
   },
   "devDependencies": {
