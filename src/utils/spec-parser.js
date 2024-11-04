@@ -1,5 +1,4 @@
 /* eslint-disable no-use-before-define */
-/* eslint import/no-unresolved: [2, { commonjs: true, amd: true }] */
 import OpenApiParser from '@apitools/openapi-parser';
 import { marked } from 'marked';
 import { invalidCharsRegEx, rapidocApiKey, sleep } from '~/utils/common-utils';
@@ -83,18 +82,18 @@ export default async function ProcessSpec(
       if (!securitySchemeSet.has(kv[0])) {
         securitySchemeSet.add(kv[0]);
         const securityObj = { securitySchemeId: kv[0], ...kv[1] };
-        securityObj.in = 'header';
-        securityObj.name = 'Authorization'; // Name of the header/cookie/api-key
-        securityObj.nameId = kv[1].name || kv[0]; // Name of the security-scheme
-        securityObj.user = '';
-        securityObj.password = '';
-        securityObj.clientId = '';
-        securityObj.clientSecret = '';
         securityObj.value = '';
         securityObj.finalKeyValue = '';
-        if (kv[1].type === 'apiKey') {
+        if (kv[1].type === 'apiKey' || kv[1].type === 'http') {
           securityObj.in = kv[1].in || 'header';
           securityObj.name = kv[1].name || 'Authorization';
+          securityObj.user = '';
+          securityObj.password = '';
+        } else if (kv[1].type === 'oauth2') {
+          securityObj.in = 'header';
+          securityObj.name = 'Authorization';
+          securityObj.clientId = '';
+          securityObj.clientSecret = '';
         }
         securitySchemes.push(securityObj);
       }
@@ -107,8 +106,7 @@ export default async function ProcessSpec(
       description: 'api-key provided in rapidoc element attributes',
       type: 'apiKey',
       oAuthFlow: '',
-      name: attrApiKey, // Name of the header/cookie/api-key
-      nameId: attrApiKey, // Name of the security-scheme
+      name: attrApiKey,
       in: attrApiKeyLocation,
       value: attrApiKeyValue,
       finalKeyValue: attrApiKeyValue,
@@ -118,7 +116,7 @@ export default async function ProcessSpec(
   // Updated Security Type Display Text based on Type
   securitySchemes.forEach((v) => {
     if (v.type === 'http') {
-      v.typeDisplay = v.scheme === 'basic' ? 'HTTP Basic' : `HTTP Bearer ${v.nameId}`;
+      v.typeDisplay = v.scheme === 'basic' ? 'HTTP Basic' : 'HTTP Bearer';
     } else if (v.type === 'apiKey') {
       v.typeDisplay = `API Key (${v.name})`;
     } else if (v.type === 'oauth2') {
@@ -187,8 +185,8 @@ function filterPaths(openApiObject, matchPaths = '', matchType = '', removeEndpo
     }
     const fullPath = `${httpMethod} ${pathsKey}`.toLowerCase(); // Construct "method path" string
     if (matchType === 'regex') {
-      const matchPathsRegex = new RegExp(matchPaths, 'i');
-      return matchPathsRegex.test(fullPath);
+      const regex = new RegExp(matchPaths, 'i');
+      return regex.test(matchPaths.toLowerCase());
     }
     return fullPath.includes(matchPaths.toLowerCase());
   }
