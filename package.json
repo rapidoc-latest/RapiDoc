@@ -1,14 +1,17 @@
 {
-  "name": "rapidoc",
-  "version": "9.3.8",
+  "name": "@majoshi1/rapidoc-latest",
+  "version": "2024.11.0",
   "description": "RapiDoc - Open API spec viewer with built in console",
   "author": "Mrinmoy Majumdar <mrin9@yahoo.com>",
-  "homepage": "https://rapidocweb.com",
+  "homepage": "https://majoshi1.github.io/rapidoc-latest/rapidocweb",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rapi-doc/RapiDoc.git"
+    "url": "https://github.com/rapidoc-latest/RapiDoc.git"
   },
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "OpenAPI",
     "OpenAPI Specification",
@@ -48,8 +51,9 @@
     "serve": "webpack serve --mode=development",
     "serve-prod": "webpack serve --mode=production",
     "serve1": "node --trace-deprecation ./node_modules/webpack/bin/webpack serve",
-    "lint": "./node_modules/eslint/bin/eslint.js ./src/**",
-    "lint-fix": "./node_modules/eslint/bin/eslint.js --fix ./src/**"
+    "lint": "node ./node_modules/eslint/bin/eslint.js ./src/**",
+    "lint-fix": "node ./node_modules/eslint/bin/eslint.js --fix ./src/**",
+    "docs": "copy-folder-util docs ../majoshi1.github.io/rapidoc-latest/rapidocweb"
   },
   "devDependencies": {
     "@babel/core": "^7.25.8",
@@ -59,6 +63,7 @@
     "babel-plugin-template-html-minifier": "^4.1.0",
     "clean-webpack-plugin": "^4.0.0",
     "compression-webpack-plugin": "^11.1.0",
+    "copy-folder-util": "^1.1.4",
     "css-loader": "^7.1.2",
     "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
